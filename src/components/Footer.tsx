@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Gamepad2, Github, Linkedin, Mail, Send } from 'lucide-react';
+import { ArrowUp, Facebook, Gamepad2, Github, Linkedin, Mail, Send } from 'lucide-react';
 import { Language } from '../i18n';
 import { playSound } from '../utils/audio';
 
@@ -13,6 +13,7 @@ export default function Footer({ onNavigate, language }: FooterProps) {
   const socialLinks = [
     { label: 'GitHub', url: 'https://github.com/cuongvm2307', icon: Github, color: 'hover:text-white' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/cuong-vu-532621119/', icon: Linkedin, color: 'hover:text-blue-400' },
+    { label: 'Facebook', url: 'https://www.facebook.com/cuongvm2307', icon: Facebook, color: 'hover:text-blue-500' },
     { label: 'Email', url: 'mailto:cuongvm2307@gmail.com', icon: Mail, color: 'hover:text-indigo-400' }
   ];
   const links = [

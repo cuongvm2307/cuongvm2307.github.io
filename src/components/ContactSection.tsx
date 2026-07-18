@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle, Linkedin, Mail, MapPin, Phone, Send } from 'lucide-react';
+import { CheckCircle, Facebook, Linkedin, Mail, MapPin, Phone, Send } from 'lucide-react';
 import { Language } from '../i18n';
 import { Game } from '../types';
 import { playSound } from '../utils/audio';
@@ -34,6 +34,7 @@ export default function ContactSection({ language, games }: ContactSectionProps)
     email: isVi ? 'Email liên hệ' : 'Contact email',
     phone: isVi ? 'Trao đổi nhanh' : 'Quick chat',
     linkedin: isVi ? 'Quá trình làm việc' : 'Work history',
+    facebook: 'Facebook',
     location: isVi ? 'Khu vực' : 'Location',
     quote: isVi
       ? 'Code gameplay tốt không chỉ chạy được, mà còn phải dễ debug, dễ tune và đủ sạch để team tiếp tục phát triển.'
@@ -110,6 +111,16 @@ export default function ContactSection({ language, games }: ContactSectionProps)
                     <span className="text-[10px] font-mono text-slate-500 block uppercase font-bold">{t.linkedin}</span>
                     <a href="https://www.linkedin.com/in/cuong-vu-532621119/" className="text-slate-300 text-xs hover:text-white transition-colors" target="_blank" rel="noreferrer">
                       linkedin.com/in/cuong-vu-532621119
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="bg-slate-900 border border-slate-800 p-2.5 rounded-xl text-indigo-400 shrink-0"><Facebook className="w-4 h-4" /></div>
+                  <div>
+                    <span className="text-[10px] font-mono text-slate-500 block uppercase font-bold">{t.facebook}</span>
+                    <a href="https://www.facebook.com/cuongvm2307" className="text-slate-300 text-xs hover:text-white transition-colors" target="_blank" rel="noreferrer">
+                      facebook.com/cuongvm2307
                     </a>
                   </div>
                 </div>
