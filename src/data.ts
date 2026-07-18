@@ -152,27 +152,39 @@ export const BLOGS_DATA: Blog[] = [
 export const MILESTONES_DATA: Milestone[] = [
   {
     id: 'm1',
-    year: '2018',
-    title: 'Bắt đầu với Unity và C#',
-    description: 'Xây nền tảng gameplay programming, UI, animation controller, physics và build mobile.'
+    year: '2014 - 2015',
+    title: 'Game Developer - SUNNET INFORMATION TECHNOLOGY AND COMMUNICATION SOLUTION JSC',
+    description: 'Làm việc full-time tại Hà Nội, Việt Nam; xây nền tảng phát triển game, Unity/C# và quy trình sản xuất sản phẩm.'
   },
   {
     id: 'm2',
-    year: '2020',
-    title: 'Tham gia các dự án mobile game',
-    description: 'Làm việc với team art/design, triển khai gameplay loop, economy, ads/IAP và tối ưu thiết bị Android.'
+    year: '2015 - 2021',
+    title: 'Game Developer - Viguys Entertainment',
+    description: '6 năm làm full-time tại Hà Nội, tham gia nhiều dự án game, triển khai gameplay, UI flow, build mobile và phối hợp cùng team production.'
   },
   {
     id: 'm3',
-    year: '2022',
-    title: 'Tập trung architecture và tools',
-    description: 'Xây module tái sử dụng, editor tooling, config pipeline và quy trình prototype nhanh cho nhiều thể loại.'
+    year: '2021',
+    title: 'Game Developer - DZS TECHNOLOGY DEVELOPMENT AND INVESTMENT JSC',
+    description: 'Tham gia full-time trong 8 tháng, tiếp tục phát triển gameplay, module Unity và quy trình vận hành game.'
   },
   {
     id: 'm4',
-    year: '2024+',
-    title: 'Unity developer có thể join project nhanh',
-    description: 'Sẵn sàng tham gia dự án game mobile, casual, RPG, multiplayer prototype hoặc tooling nội bộ.'
+    year: '2021 - 2022',
+    title: 'Senior Unity Developer - WILD THUNDER STUDIO',
+    description: 'Làm full-time tại Hà Nội, Việt Nam; đảm nhận vai trò Senior Unity Developer trong khoảng 1 năm 1 tháng.'
+  },
+  {
+    id: 'm5',
+    year: '2022 - Present',
+    title: 'Senior Unity Developer - Inwave Studio',
+    description: 'Senior Unity Developer full-time, tập trung Unity, C# và nhiều kỹ năng production khác; hiện là vị trí làm việc mới nhất.'
+  },
+  {
+    id: 'm6',
+    year: '2010 - 2014',
+    title: 'Hanoi University of Science and Technology',
+    description: 'Bachelor of Technology - BTech, Information Technology. Grade: Very Good.'
   }
 ];
 

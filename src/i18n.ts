@@ -166,10 +166,30 @@ const englishBlogs: Record<string, Partial<Blog>> = {
 };
 
 const englishMilestones: Record<string, Partial<Milestone>> = {
-  m1: { title: 'Started with Unity and C#', description: 'Built a foundation in gameplay programming, UI, animation controllers, physics, and mobile builds.' },
-  m2: { title: 'Joined mobile game projects', description: 'Worked with art/design teams to implement gameplay loops, economy, ads/IAP, and Android optimization.' },
-  m3: { title: 'Focused on architecture and tools', description: 'Built reusable modules, editor tooling, config pipelines, and fast prototype workflows for multiple genres.' },
-  m4: { title: 'Ready to join Unity projects quickly', description: 'Available for mobile games, casual games, RPG systems, multiplayer prototypes, or internal tooling.' }
+  m1: {
+    title: 'Game Developer - SUNNET INFORMATION TECHNOLOGY AND COMMUNICATION SOLUTION JSC',
+    description: 'Full-time role in Ha Noi, Viet Nam; built a foundation in game development, Unity/C#, and production workflows.'
+  },
+  m2: {
+    title: 'Game Developer - Viguys Entertainment',
+    description: 'Six years full-time in Ha Noi, joining multiple game projects across gameplay, UI flow, mobile builds, and production teamwork.'
+  },
+  m3: {
+    title: 'Game Developer - DZS TECHNOLOGY DEVELOPMENT AND INVESTMENT JSC',
+    description: 'Eight-month full-time role focused on gameplay development, Unity modules, and live game workflows.'
+  },
+  m4: {
+    title: 'Senior Unity Developer - WILD THUNDER STUDIO',
+    description: 'Full-time Senior Unity Developer in Ha Noi, Viet Nam for about one year and one month.'
+  },
+  m5: {
+    title: 'Senior Unity Developer - Inwave Studio',
+    description: 'Current full-time Senior Unity Developer role focused on Unity, C#, and production-ready game development skills.'
+  },
+  m6: {
+    title: 'Hanoi University of Science and Technology',
+    description: 'Bachelor of Technology - BTech, Information Technology. Grade: Very Good.'
+  }
 };
 
 const englishTeam: Record<string, Partial<TeamMember>> = {
