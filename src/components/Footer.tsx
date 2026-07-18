@@ -20,7 +20,8 @@ export default function Footer({ onNavigate, language }: FooterProps) {
     ['projects', isVi ? 'Project Unity' : 'Unity Projects'],
     ['about', isVi ? 'Kinh Nghiệm' : 'Experience'],
     ['blog', isVi ? 'Ghi Chú Dev' : 'Dev Notes'],
-    ['contact', isVi ? 'Liên Hệ Join Project' : 'Project Contact']
+    ['contact', isVi ? 'Liên Hệ Join Project' : 'Project Contact'],
+    ['policy', 'Policy / Terms']
   ];
 
   const scrollToTop = () => {
@@ -49,7 +50,7 @@ export default function Footer({ onNavigate, language }: FooterProps) {
                 : 'Personal portfolio of Cuong VM, a Unity developer focused on gameplay, mobile optimization, tools, and fast project onboarding.'}
             </p>
 
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               {socialLinks.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -75,7 +76,9 @@ export default function Footer({ onNavigate, language }: FooterProps) {
           <div className="space-y-3.5">
             <h4 className="text-white text-xs font-bold uppercase tracking-wider">{isVi ? 'Nhận cập nhật' : 'Get Updates'}</h4>
             <p className="text-[11px] text-slate-500 leading-relaxed font-normal">
-              {isVi ? 'Để lại email nếu bạn muốn trao đổi project Unity hoặc cần mình gửi CV/portfolio chi tiết.' : 'Leave an email if you want to discuss a Unity project or receive a detailed CV/portfolio.'}
+              {isVi
+                ? 'Để lại email nếu bạn muốn trao đổi project Unity hoặc cần mình gửi CV/portfolio chi tiết.'
+                : 'Leave an email if you want to discuss a Unity project or receive a detailed CV/portfolio.'}
             </p>
             <div className="flex gap-2">
               <input type="email" placeholder={isVi ? 'Email của bạn' : 'Your email'} className="bg-slate-900 border border-slate-800/80 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-600 focus:border-indigo-500 outline-none w-full" />

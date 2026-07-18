@@ -5,6 +5,7 @@ import GameCard from './components/GameCard';
 import AboutSection from './components/AboutSection';
 import BlogSection from './components/BlogSection';
 import ContactSection from './components/ContactSection';
+import PolicyTermsSection from './components/PolicyTermsSection';
 import Footer from './components/Footer';
 import GameDetailsModal from './components/GameDetailsModal';
 import { Game } from './types';
@@ -52,7 +53,7 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'projects', 'about', 'blog', 'contact'];
+      const sections = ['hero', 'projects', 'about', 'blog', 'contact', 'policy'];
       const scrollPosition = window.scrollY + 180;
 
       for (const section of sections) {
@@ -159,6 +160,7 @@ export default function App() {
         <AboutSection language={language} />
         <BlogSection language={language} />
         <ContactSection language={language} games={games} />
+        <PolicyTermsSection language={language} />
       </main>
 
       <Footer onNavigate={handleNavigate} language={language} />
