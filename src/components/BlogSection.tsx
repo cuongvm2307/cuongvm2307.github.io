@@ -21,7 +21,7 @@ export default function BlogSection() {
     BLOGS_DATA.reduce((acc, b) => ({ 
       ...acc, 
       [b.id]: [
-        { author: 'Lâm Tuấn', text: 'Bài viết rất hữu ích, hóng bản đồ họa thực tế của Thần Kiếm!', date: '11/07/2026' },
+        { author: 'Lâm Tuấn', text: 'Bài viết rất hữu ích, hóng bản đồ họa thực tế của Unity Combat Demo!', date: '11/07/2026' },
         { author: 'Kim Chi', text: 'Phong cách nghệ thuật của Flora Story đẹp quá xá, mong game ra mắt sớm.', date: '06/07/2026' }
       ] 
     }), {})
@@ -86,7 +86,7 @@ export default function BlogSection() {
               TIN MỚI & BLOG DEV
             </h2>
             <p className="text-slate-400 text-xs sm:text-sm mt-2 max-w-xl font-normal leading-relaxed">
-              Cập nhật những công bố chính thức, tiến trình phát triển dự án và chia sẻ công nghệ chuyên sâu từ hậu trường làm game của đội ngũ HanHi Games.
+              Cập nhật những công bố chính thức, tiến trình phát triển dự án và chia sẻ công nghệ chuyên sâu từ hậu trường làm game của đội ngũ Cường VM.
             </p>
           </div>
 
@@ -204,7 +204,7 @@ export default function BlogSection() {
             id="blog-reader-overlay"
           >
             <div 
-              className="bg-slate-900 border border-slate-850 rounded-3xl w-full max-w-3xl shadow-2xl overflow-hidden my-8 animate-scale-up"
+              className="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-3xl shadow-2xl overflow-hidden my-8 animate-scale-up"
               id="blog-reader-modal"
             >
               {/* Cover Banner */}
@@ -219,7 +219,7 @@ export default function BlogSection() {
 
                 <button
                   onClick={() => setActiveBlog(null)}
-                  className="absolute top-4 right-4 bg-slate-950/85 hover:bg-slate-850 text-slate-400 hover:text-white p-2 rounded-full border border-slate-800 backdrop-blur"
+                  className="absolute top-4 right-4 bg-slate-950/85 hover:bg-slate-800 text-slate-400 hover:text-white p-2 rounded-full border border-slate-800 backdrop-blur"
                   id="close-reader-btn"
                 >
                   <X className="w-5 h-5" />
@@ -277,7 +277,7 @@ export default function BlogSection() {
                 </div>
 
                 {/* LIKE TRIGGER */}
-                <div className="bg-slate-950/80 border border-slate-850 p-4 rounded-2xl flex items-center justify-between mt-8">
+                <div className="bg-slate-950/80 border border-slate-800 p-4 rounded-2xl flex items-center justify-between mt-8">
                   <span className="text-xs text-slate-400">Thích bài viết này để khích lệ tác giả?</span>
                   <button
                     onClick={() => handleLike(activeBlog.id)}
@@ -299,7 +299,7 @@ export default function BlogSection() {
                   </h3>
 
                   {/* Comment input form */}
-                  <form onSubmit={(e) => handleAddComment(e, activeBlog.id)} className="space-y-3.5 mb-8 bg-slate-950/40 border border-slate-850 p-4 rounded-2xl">
+                  <form onSubmit={(e) => handleAddComment(e, activeBlog.id)} className="space-y-3.5 mb-8 bg-slate-950/40 border border-slate-800 p-4 rounded-2xl">
                     <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
                       <div className="sm:col-span-1">
                         <input 
@@ -308,7 +308,7 @@ export default function BlogSection() {
                           required
                           value={commentName}
                           onChange={(e) => setCommentName(e.target.value)}
-                          className="w-full bg-slate-900 border border-slate-800 hover:border-slate-750 focus:border-indigo-500 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 outline-none transition-colors"
+                          className="w-full bg-slate-900 border border-slate-800 hover:border-slate-700 focus:border-indigo-500 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 outline-none transition-colors"
                         />
                       </div>
                       <div className="sm:col-span-3 flex gap-2">
@@ -318,7 +318,7 @@ export default function BlogSection() {
                           required
                           value={commentText}
                           onChange={(e) => setCommentText(e.target.value)}
-                          className="flex-1 bg-slate-900 border border-slate-800 hover:border-slate-750 focus:border-indigo-500 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 outline-none transition-colors"
+                          className="flex-1 bg-slate-900 border border-slate-800 hover:border-slate-700 focus:border-indigo-500 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 outline-none transition-colors"
                         />
                         <button 
                           type="submit"

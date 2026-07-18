@@ -36,7 +36,7 @@ export default function GameDetailsModal({ game, onClose }: GameDetailsModalProp
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 bg-slate-950/80 hover:bg-slate-850 text-slate-400 hover:text-white p-2.5 rounded-full border border-slate-800 backdrop-blur-md transition-all cursor-pointer shadow-lg hover:scale-105"
+            className="absolute top-4 right-4 bg-slate-950/80 hover:bg-slate-800 text-slate-400 hover:text-white p-2.5 rounded-full border border-slate-800 backdrop-blur-md transition-all cursor-pointer shadow-lg hover:scale-105"
             id="close-modal-btn"
           >
             <X className="w-5 h-5" />
@@ -193,7 +193,7 @@ export default function GameDetailsModal({ game, onClose }: GameDetailsModalProp
 
         {/* Modal Footer */}
         <div className="bg-slate-950 p-4 border-t border-slate-800 flex justify-between items-center">
-          <span className="text-[10px] font-mono text-slate-500">HanHi Games - Studio Sáng Tạo Việt Nam</span>
+          <span className="text-[10px] font-mono text-slate-500">Cường VM - Unity Developer Portfolio</span>
           {activeTab === 'info' && (
             <button
               onClick={() => setActiveTab('demo')}

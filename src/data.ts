@@ -1,26 +1,26 @@
-import { Game, Blog, Milestone, TeamMember } from './types';
+import { Blog, Game, Milestone, TeamMember } from './types';
 
 export const HERO_BANNER = '/src/assets/images/games_studio_hero_1784128744057.jpg';
 
 export const GAMES_DATA: Game[] = [
   {
-    id: 'than-kiem-hanhi',
-    title: 'Thần Kiếm HanHi: Minh Chủ Trỗi Dậy',
-    genre: 'Action RPG / Nhập Vai Hành Động',
+    id: 'mobile-rpg-framework',
+    title: 'Mobile RPG Combat Framework',
+    genre: 'Unity / Action RPG / Mobile',
     cover: '/src/assets/images/shadow_legend_cover_1784128760954.jpg',
-    description: 'Một kiệt tác game nhập vai hành động thế giới mở mang phong cách thần thoại Đông Phương với đồ họa Unreal Engine 5 đỉnh cao, hệ thống chiến đấu tự do đầy tốc độ.',
-    longDescription: 'Bước vào thế giới mở kỳ ảo của Cửu Châu, nơi tà ma đang trỗi dậy và phong ấn cổ xưa bị phá vỡ. Trong vai truyền nhân cuối cùng của kiếm phái HanHi, người chơi sẽ làm chủ thanh Thần Kiếm cổ đại, tu luyện các tuyệt kỹ võ học đỉnh cao, thu thập thần thú và tham gia vào những trận chiến nghẹt thở để bảo vệ bang chúng và viết nên truyền kỳ của riêng mình.',
-    releaseDate: '15/12/2025',
-    platforms: ['PC', 'Console'],
+    description: 'Framework chiến đấu cho mobile RPG gồm combo, skill cooldown, enemy AI, object pooling và tối ưu hiệu năng cho thiết bị tầm trung.',
+    longDescription: 'Một project cá nhân tập trung vào phần lõi gameplay cho game nhập vai hành động trên Unity. Hệ thống được tách module rõ ràng cho input, animation state, hitbox, damage, VFX, pooling và config bằng ScriptableObject để dễ mở rộng nội dung.',
+    releaseDate: '2025',
+    platforms: ['Mobile', 'PC'],
     rating: 4.9,
     status: 'Released',
-    downloads: '2.5M+',
+    downloads: 'Personal demo',
     demoType: 'combat',
     features: [
-      'Thế giới mở liền mạch rộng lớn hơn 100km² với hệ thống thời tiết động.',
-      'Hệ thống chiến đấu Hack-and-Slash tự do kết hợp combo ngũ hành khắc chế.',
-      'Cốt truyện phân nhánh sâu sắc với hơn 40 giờ chơi chính tuyến.',
-      'Công nghệ đồ họa Unreal Engine 5 chân thực với Ray Tracing hiện đại.'
+      'Combat controller có combo chain, hit pause, knockback và cancel window.',
+      'Enemy AI dùng state machine đơn giản, dễ tinh chỉnh theo từng loại quái.',
+      'Object pooling cho projectile, VFX, damage text và enemy spawn.',
+      'Profiler-driven optimization cho draw call, GC allocation và frame pacing.'
     ],
     screenshots: [
       'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800',
@@ -28,28 +28,28 @@ export const GAMES_DATA: Game[] = [
       'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&q=80&w=800'
     ],
     specs: {
-      minimum: 'Intel Core i5-8400 | 16 GB RAM | NVIDIA GeForce GTX 1060 6GB | 50 GB SSD',
-      recommended: 'Intel Core i7-10700K | 32 GB RAM | NVIDIA GeForce RTX 3070 8GB | 50 GB NVMe SSD'
+      minimum: 'Unity 2021 LTS | Android 8+ | 3 GB RAM',
+      recommended: 'Unity 2022 LTS | Android 10+ | 4 GB RAM'
     }
   },
   {
-    id: 'neon-nexus',
-    title: 'Neon Nexus: Cyberpunk Heist',
-    genre: 'Cyberpunk Action / Hacking Shooter',
+    id: 'multiplayer-prototype',
+    title: 'Realtime Multiplayer Prototype',
+    genre: 'Unity / Multiplayer / Co-op',
     cover: '/src/assets/images/cyber_nexus_cover_1784128777812.jpg',
-    description: 'Trò chơi hành động lén lút kết hợp bắn súng góc nhìn thứ nhất, bối cảnh thành phố tương lai rực rỡ ánh đèn neon, nơi thông tin là vũ khí tối thượng.',
-    longDescription: 'Năm 2088, tại siêu đô thị Neo-Saigon, các tập đoàn tài phiệt kiểm soát mọi ngóc ngách đời sống bằng mạng lưới trí tuệ nhân tạo thần kinh Nexus. Bạn vào vai một "Ghost Hacker" chuyên nghiệp của HanHi Syndicate, thâm nhập vào các máy chủ tối mật, hack các hệ thống phòng thủ tinh vi, và cướp đoạt những bí mật công nghệ có thể lật đổ cả một đế chế.',
-    releaseDate: 'Dự kiến Q4/2026',
-    platforms: ['PC', 'Console', 'VR'],
+    description: 'Prototype multiplayer thời gian thực với lobby, room flow, sync vị trí, RPC event và xử lý các tình huống reconnect cơ bản.',
+    longDescription: 'Project mô phỏng luồng chơi co-op nhỏ trong Unity, tập trung vào kiến trúc network gameplay: phân tách local prediction nhẹ, remote interpolation, event-driven combat và màn hình lobby/room đủ dùng cho testing.',
+    releaseDate: '2024',
+    platforms: ['PC', 'Mobile'],
     rating: 4.7,
     status: 'Beta',
-    downloads: '100K+ (Đăng ký thử nghiệm)',
+    downloads: 'Internal test',
     demoType: 'hacking',
     features: [
-      'Lối chơi kết hợp độc đáo giữa bắn súng góc nhìn thứ nhất và cơ chế Hacking thời gian thực.',
-      'Môi trường tương tác cao, cho phép hack mọi thiết bị điện tử để làm vũ khí.',
-      'Cốt truyện đậm chất viễn tưởng cyberpunk với nhạc nền Synthwave sôi động.',
-      'Hỗ trợ chế độ thực tế ảo VR đem lại trải nghiệm nhập vai cực hạn.'
+      'Room/lobby lifecycle có ready state, start match và leave room.',
+      'Network transform interpolation giúp chuyển động remote mượt hơn.',
+      'RPC event cho skill, hit confirm, health sync và match result.',
+      'Code tổ chức theo service layer để dễ thay backend như Photon, Mirror hoặc Netcode.'
     ],
     screenshots: [
       'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800',
@@ -57,28 +57,28 @@ export const GAMES_DATA: Game[] = [
       'https://images.unsplash.com/photo-1612287230202-1bf1d85d1bdf?auto=format&fit=crop&q=80&w=800'
     ],
     specs: {
-      minimum: 'Intel Core i5-9600K | 16 GB RAM | NVIDIA GeForce GTX 1660 Super | 60 GB SSD',
-      recommended: 'Intel Core i7-12700 | 32 GB RAM | NVIDIA GeForce RTX 4060 Ti | 60 GB NVMe SSD'
+      minimum: 'Unity 2021 LTS | Photon/Mirror ready | 60 FPS target',
+      recommended: 'Unity 2022 LTS | Dedicated test scene | Android/iOS build pipeline'
     }
   },
   {
-    id: 'magic-valley',
-    title: 'Thung Lũng Diệu Kỳ: Flora Story',
-    genre: 'Cozy Farming / Life Simulation',
+    id: 'casual-liveops-toolkit',
+    title: 'Casual Game LiveOps Toolkit',
+    genre: 'Unity / Casual / Tools',
     cover: '/src/assets/images/cozy_valley_cover_1784128793300.jpg',
-    description: 'Trải nghiệm cuộc sống điền viên yên bình, khám phá thung lũng thần tiên kỳ bí, lai tạo các giống cây trồng ma thuật và kết bạn với muông thú đáng yêu.',
-    longDescription: 'Tạm rời xa phố thị ồn ào, bạn kế thừa mảnh vườn cổ tích của người ông tại Thung Lũng Diệu Kỳ. Nơi đây không chỉ có trồng trọt chăn nuôi thông thường, mà bạn còn có thể khai phá các hạt giống phát sáng, chế tạo thuốc ma thuật, dọn dẹp các khu rừng bị ô uế và giúp đỡ những linh vật bảo hộ khôi phục lại hào quang của khu rừng thiên diệu.',
-    releaseDate: 'Dự kiến Q2/2027',
-    platforms: ['PC', 'Mobile', 'Console'],
+    description: 'Bộ công cụ cho casual game gồm daily reward, shop config, remote balancing, analytics event và flow popup có thể tái sử dụng.',
+    longDescription: 'Một toolkit cá nhân cho các dự án casual/mobile, ưu tiên tốc độ triển khai và dễ bảo trì. Các module UI, economy config, daily reward và analytics wrapper được tách rời để dùng lại qua nhiều prototype.',
+    releaseDate: '2023',
+    platforms: ['Mobile'],
     rating: 4.8,
     status: 'In Development',
-    downloads: 'Chưa mở tải',
+    downloads: 'Reusable toolkit',
     demoType: 'farming',
     features: [
-      'Lối chơi thư giãn, nhịp độ chậm rãi, kết nối tâm hồn vô cùng chữa lành.',
-      'Hệ thống lai giống cây trồng ma thuật với hơn 200 loài độc lạ phát quang về đêm.',
-      'Chăm sóc các sinh vật huyền bí như thỏ sừng dài, cáo chín đuôi mini và rồng đất tí hon.',
-      'Hỗ trợ Co-op chơi chung cùng bạn bè tối đa 4 người để cùng xây dựng trang trại.'
+      'Daily reward, in-game shop, currency wallet và offer popup.',
+      'Config bằng ScriptableObject/JSON giúp game designer chỉnh nhanh.',
+      'Analytics wrapper cho tutorial, level, purchase intent và retention events.',
+      'UI flow stack hạn chế popup chồng chéo và dễ tích hợp localization.'
     ],
     screenshots: [
       'https://images.unsplash.com/photo-1580234810907-b40315b76418?auto=format&fit=crop&q=80&w=800',
@@ -86,168 +86,127 @@ export const GAMES_DATA: Game[] = [
       'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=800'
     ],
     specs: {
-      minimum: 'Intel Core i3-6100 | 8 GB RAM | NVIDIA GeForce GTX 750 Ti | 10 GB HDD',
-      recommended: 'Intel Core i5-8400 | 16 GB RAM | NVIDIA GeForce GTX 1050 Ti | 10 GB SSD'
+      minimum: 'Unity 2021 LTS | Addressables optional | Mobile UI safe area',
+      recommended: 'Unity 2022 LTS | Remote config | Firebase/GameAnalytics integration'
     }
   }
 ];
 
 export const BLOGS_DATA: Blog[] = [
   {
-    id: 'blog-ue5-than-kiem',
-    title: 'Hành trình tối ưu hóa đồ họa Thần Kiếm HanHi trên Unreal Engine 5',
-    summary: 'Chia sẻ về cách HanHi Games áp dụng hệ thống chiếu sáng Lumen và tối ưu hóa hệ thống hạt Nanite để đạt tốc độ 60FPS mượt mà trên hệ máy Console thế hệ mới.',
-    content: `Trong thế giới phát triển game AAA ngày nay, việc cân bằng giữa chất lượng đồ họa cực hạn và hiệu năng phần cứng luôn là bài toán đau đầu nhất. Với dự án **Thần Kiếm HanHi: Minh Chủ Trỗi Dậy**, đội ngũ kỹ thuật của HanHi Games đã dũng cảm chuyển đổi toàn bộ dự án từ UE4 sang Unreal Engine 5 ngay giữa chu kỳ sản xuất.
-
-### 1. Thách thức với Nanite & Lumen
-Nanite cho phép chúng tôi nhập trực tiếp các mô hình 3D có độ chi tiết lên tới hàng triệu đa giác từ ZBrush mà không cần nướng normal map truyền thống. Tuy nhiên, khi kết hợp với hệ thống phản xạ ánh sáng thời gian thực Lumen, lượng tài nguyên GPU ngốn là vô cùng khủng khiếp.
-Để giải quyết điều này, chúng tôi đã:
-- Thiết lập một hệ thống **Dynamic Resolution Scaling (DRS)** thông minh, điều chỉnh độ phân giải render dựa trên tải trọng tức thời của GPU.
-- Tạo các lớp chi tiết ảo để lọc bớt những vật thể quá nhỏ không cần thiết trong những khung cảnh hỗn chiến phức tạp.
-
-### 2. Tối ưu hóa Virtual Shadow Maps (VSM)
-Hệ thống bóng đổ bóng mờ ảo (Virtual Shadow Maps) của UE5 đem lại bóng đổ chân thực tuyệt đối nhưng cực kỳ nặng. Đội ngũ kỹ thuật đồ họa của HanHi đã viết lại một phần trình quản lý bộ đệm bóng đổ, gom nhóm các vật thể tĩnh trong môi trường Cửu Châu và chỉ cập nhật bóng đổ động cho nhân vật chính, kẻ địch và các hiệu ứng chiêu thức võ học.
-
-### Kết quả mỹ mãn
-Nhờ những nỗ lực bền bỉ suốt 6 tháng ròng rã, phiên bản cập nhật 1.2 của **Thần Kiếm HanHi** đã chính thức cán mốc 60FPS ổn định ở độ phân giải 4K trên PS5 và các dòng card đồ họa tầm trung như RTX 3060 Ti trên PC. Chúng tôi vô cùng tự hào khi đem đến trải nghiệm mượt mà không tì vết cho cộng đồng game thủ Việt!`,
-    category: 'Hậu trường Dev',
+    id: 'blog-unity-optimization',
+    title: 'Tối ưu Unity mobile: bắt đầu từ profiler, không bắt đầu từ cảm giác',
+    summary: 'Một vài ghi chú thực tế về GC allocation, batching, texture memory và cách giữ FPS ổn định trên máy tầm trung.',
+    content: 'Khi tối ưu Unity mobile, mình thường bắt đầu bằng Profiler và Frame Debugger trước khi sửa code. Những điểm hay gặp là allocation trong Update, instantiate/destroy liên tục, texture quá lớn, canvas rebuild và shader quá đắt. Cách làm hiệu quả là đo, khoanh vùng, sửa nhỏ, rồi đo lại.',
+    category: 'Unity Notes',
     author: {
-      name: 'Trần Hoàng Nam',
-      avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=150',
-      role: 'Trưởng nhóm Lập trình Đồ họa'
+      name: 'Cường VM',
+      avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=150',
+      role: 'Unity Developer'
     },
-    date: '10/07/2026',
-    readTime: '6 phút đọc',
-    cover: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800',
-    likes: 342,
-    commentsCount: 28,
-    tags: ['Unreal Engine 5', 'Tối ưu hóa', 'Thần Kiếm HanHi', 'AAA']
-  },
-  {
-    id: 'blog-phat-trien-cozy-game',
-    title: 'Tại sao chúng tôi quyết định phát triển một "Cozy Game" chữa lành?',
-    summary: 'Lắng nghe những chia sẻ mộc mạc từ Đạo diễn Nghệ thuật của HanHi Games về nguồn cảm hứng tạo nên dự án Thung Lũng Diệu Kỳ sau những tháng ngày căng thẳng.',
-    content: `Sau thành công vang dội nhưng cũng đầy áp lực của dự án game AAA đầu tay **Thần Kiếm HanHi**, cả studio đã rơi vào trạng thái kiệt sức sáng tạo. Giữa những buổi thảo luận căng thẳng về dự án tiếp theo, một câu hỏi đã thay đổi hoàn toàn hướng đi của chúng tôi: "Tại sao không làm điều gì đó thực sự thư thái, giúp con người kết nối lại với thiên nhiên và xoa dịu tâm hồn?"
-
-Và thế là, **Thung Lũng Diệu Kỳ (Flora Story)** ra đời.
-
-### Nguồn cảm hứng từ những bản làng vùng cao Việt Nam
-Đội ngũ thiết kế mỹ thuật của HanHi Games đã dành 2 tuần thực tế tại các vùng núi phía Bắc Việt Nam như Sapa, Y Tý. Cảnh sắc ruộng bậc thang óng ánh dưới nắng chiều, những ngôi nhà trình tường lợp ngói âm dương phủ đầy rêu phong và nhịp sống chậm rãi của đồng bào đã thổi hồn vào phong cách nghệ thuật của game.
-
-### Triết lý "Chữa Lành" trong từng pixel
-Trong Thung Lũng Diệu Kỳ, không có khái niệm "Game Over", không có những trận đấu boss căng thẳng đến toát mồ hôi. Game tập trung vào:
-- **Âm thanh thiên nhiên trung thực**: Tiếng suối róc rách, tiếng lá tre xào xạc trong gió, tiếng dế kêu đêm kết hợp với nhạc cụ dân tộc mộc mạc như sáo trúc, đàn tranh.
-- **Tương tác ấm áp**: Người chơi có thể ôm ấp tất cả các loài động vật trong trang trại, cùng chúng đi dạo dưới bóng râm và chăm sóc từng hạt giống thần kỳ từ lúc nảy mầm đến khi phát quang rực rỡ.
-
-Chúng tôi tin rằng, giữa nhịp sống hối hả hiện đại, **Thung Lũng Diệu Kỳ** sẽ là một góc trú ẩn bình yên nhất dành cho tất cả mọi người khi ra mắt vào năm tới.`,
-    category: 'Cập nhật Game',
-    author: {
-      name: 'Nguyễn Hà Vi',
-      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150',
-      role: 'Đạo diễn Nghệ thuật'
-    },
-    date: '05/07/2026',
+    date: '2026',
     readTime: '4 phút đọc',
-    cover: 'https://images.unsplash.com/photo-1580234810907-b40315b76418?auto=format&fit=crop&q=80&w=800',
-    likes: 512,
-    commentsCount: 45,
-    tags: ['Cozy Game', 'Nghệ thuật', 'Chữa lành', 'Flora Story']
+    cover: 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&q=80&w=800',
+    likes: 128,
+    commentsCount: 12,
+    tags: ['Unity', 'Optimization', 'Mobile', 'Profiler']
   },
   {
-    id: 'blog-cong-bo-neon-nexus-beta',
-    title: 'Chính thức mở cổng đăng ký thử nghiệm giới hạn Neon Nexus: Cyberpunk Heist',
-    summary: 'Đợt thử nghiệm Closed Beta đầu tiên dành cho các Ghost Hacker tài năng sẽ bắt đầu vào ngày 25/08 tới. Khám phá các phần quà độc quyền chỉ dành riêng cho Tester đăng ký sớm!',
-    content: `Sau hơn 2 năm âm thầm phát triển, **HanHi Games** vô cùng hào hứng công bố đợt Closed Beta đầu tiên của siêu phẩm bắn súng viễn tưởng hành động lén lút **Neon Nexus: Cyberpunk Heist**.
-
-### Thông tin chi tiết đợt thử nghiệm:
-- **Thời gian đăng ký**: Từ nay đến hết ngày 20/08/2026.
-- **Thời gian thử nghiệm**: Bắt đầu từ 10:00 ngày 25/08 đến hết ngày 31/08/2026.
-- **Nền tảng hỗ trợ**: PC (Steam) và Oculus Quest 2/3 (dành cho chế độ VR).
-- **Quy mô**: Giới hạn 5,000 tài khoản may mắn được lựa chọn ngẫu nhiên qua email đăng ký.
-
-### Có gì trong bản Closed Beta này?
-Người chơi sẽ được trải nghiệm chương đầu tiên của cốt truyện mang tên **"Mã Nguồn Thất Lạc"**, bao gồm:
-1. **2 bản đồ nhiệm vụ lớn**: Tòa tháp tập đoàn V-Corp và Khu ổ chuột sầm uất Quận 9 (Neo-Saigon).
-2. **Hệ thống cyberware sơ cấp**: Cho phép tùy biến mắt quét hồng ngoại, cánh tay cường lực bẻ khóa vật lý và chip hack điều khiển camera từ xa.
-3. **Chế độ chơi Co-op 2 người**: Phối hợp cùng một đồng đội để thực hiện phi vụ đột nhập phối hợp vô cùng kịch tính.
-
-### Phần quà độc quyền cho người tham gia:
-Toàn bộ người chơi tham gia đóng góp ý kiến và hoàn thành khảo sát chất lượng trong thời gian thử nghiệm sẽ nhận ngay skin súng **"HanHi Legacy Carbon"** cực ngầu và huy hiệu danh dự **"Early Hacker"** khi game chính thức phát hành thương mại.
-
-Đừng chần chừ, hãy cuộn xuống phần Liên Hệ của website này hoặc nhấp vào nút "Trải nghiệm thử" để đăng ký ngay hôm nay!`,
-    category: 'Sự kiện',
+    id: 'blog-game-architecture',
+    title: 'Tách gameplay thành module để prototype nhanh nhưng vẫn dễ nâng cấp',
+    summary: 'Kinh nghiệm tổ chức code Unity bằng service, state machine, ScriptableObject config và event bus vừa đủ.',
+    content: 'Prototype nhanh không có nghĩa là viết tạm mọi thứ vào một MonoBehaviour. Mình thường tách input, combat, UI, economy và save data thành các module nhỏ, dùng event vừa đủ để giảm coupling, còn config thì để designer chỉnh qua ScriptableObject hoặc JSON.',
+    category: 'Development',
     author: {
-      name: 'Lê Minh Hải',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150',
-      role: 'Giám đốc Sản xuất'
+      name: 'Cường VM',
+      avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=150',
+      role: 'Unity Developer'
     },
-    date: '01/07/2026',
+    date: '2025',
     readTime: '5 phút đọc',
+    cover: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=800',
+    likes: 96,
+    commentsCount: 8,
+    tags: ['Architecture', 'Gameplay', 'C#', 'Tools']
+  },
+  {
+    id: 'blog-team-workflow',
+    title: 'Làm việc với team art/design trong dự án Unity',
+    summary: 'Một workflow nhẹ giúp dev, artist và designer cùng thử nghiệm nhanh mà ít va chạm asset.',
+    content: 'Điều mình ưu tiên khi join team là tạo pipeline rõ: prefab convention, naming, scene ownership, branch rule và checklist build. Khi mọi người có cách trao đổi asset rõ ràng, tốc độ iterate gameplay tăng lên rất nhiều.',
+    category: 'Workflow',
+    author: {
+      name: 'Cường VM',
+      avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=150',
+      role: 'Unity Developer'
+    },
+    date: '2024',
+    readTime: '3 phút đọc',
     cover: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=800',
-    likes: 289,
-    commentsCount: 19,
-    tags: ['Closed Beta', 'Cyberpunk', 'Neon Nexus', 'Sự kiện']
+    likes: 74,
+    commentsCount: 5,
+    tags: ['Teamwork', 'Pipeline', 'Unity', 'Production']
   }
 ];
 
 export const MILESTONES_DATA: Milestone[] = [
   {
     id: 'm1',
-    year: '2023',
-    title: 'Khởi đầu Đam mê',
-    description: 'HanHi Games được thành lập bởi một nhóm 5 nhà phát triển game giàu kinh nghiệm tại Sài Gòn, chung chí hướng kiến tạo các tựa game đậm bản sắc Việt với chất lượng quốc tế.'
+    year: '2018',
+    title: 'Bắt đầu với Unity và C#',
+    description: 'Xây nền tảng gameplay programming, UI, animation controller, physics và build mobile.'
   },
   {
     id: 'm2',
-    year: '2024',
-    title: 'Mở rộng Đội ngũ',
-    description: 'Studio nhận được quỹ đầu tư thiên thần, tăng quy mô lên 25 nhân sự xuất sắc, chính thức khởi động dự án game AAA "Thần Kiếm HanHi" trên nền tảng Unreal Engine 5.'
+    year: '2020',
+    title: 'Tham gia các dự án mobile game',
+    description: 'Làm việc với team art/design, triển khai gameplay loop, economy, ads/IAP và tối ưu thiết bị Android.'
   },
   {
     id: 'm3',
-    year: '2025',
-    title: 'Kiệt tác Ra mắt',
-    description: 'Phát hành chính thức "Thần Kiếm HanHi" trên Steam và PlayStation 5. Tựa game nhận được vô số lời khen ngợi từ cộng đồng game thủ quốc tế, đạt cột mốc 2.5 triệu lượt tải xuống chỉ sau 6 tháng.'
+    year: '2022',
+    title: 'Tập trung architecture và tools',
+    description: 'Xây module tái sử dụng, editor tooling, config pipeline và quy trình prototype nhanh cho nhiều thể loại.'
   },
   {
     id: 'm4',
-    year: '2026',
-    title: 'Đa dạng hóa Thể loại',
-    description: 'Bắt đầu phát triển song song hai dự án mới: tựa game Cyberpunk hành động lén lút "Neon Nexus" và tựa game Cozy chữa lành siêu dễ thương "Thung Lũng Diệu Kỳ".'
+    year: '2024+',
+    title: 'Unity developer có thể join project nhanh',
+    description: 'Sẵn sàng tham gia dự án game mobile, casual, RPG, multiplayer prototype hoặc tooling nội bộ.'
   }
 ];
 
 export const TEAM_DATA: TeamMember[] = [
   {
     id: 't1',
-    name: 'Phạm Nhật Anh',
-    role: 'CEO & Đồng sáng lập',
+    name: 'Cường VM',
+    role: 'Senior Unity Developer',
     avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=150',
-    bio: 'Hơn 12 năm chinh chiến trong ngành công nghiệp game toàn cầu, từng làm việc tại các studio lớn như Gameloft và Ubisoft trước khi trở về nước gầy dựng HanHi Games.',
-    socials: { twitter: '@anhpham_hanhi', linkedin: 'nhat-anh-pham-hanhi' }
+    bio: 'Unity developer nhiều kinh nghiệm, mạnh về gameplay, mobile optimization, UI flow, tools và làm việc cùng team production.',
+    socials: { github: 'cuongvm2307', linkedin: 'cuong-vm' }
   },
   {
     id: 't2',
-    name: 'Nguyễn Hà Vi',
-    role: 'Đạo diễn Nghệ thuật',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150',
-    bio: 'Nữ họa sĩ 3D tài năng đứng sau vẻ đẹp huyền ảo của Thần Kiếm HanHi và phong cách dịu mát của Thung Lũng Diệu Kỳ. Tốt nghiệp Thạc sĩ Mỹ thuật Công nghiệp tại Paris.',
-    socials: { linkedin: 'ha-vi-art-hanhi', github: 'haviart' }
+    name: 'Gameplay',
+    role: 'Combat / Input / AI',
+    avatar: 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&q=80&w=150',
+    bio: 'Thiết kế và triển khai gameplay loop, character controller, enemy AI, skill system và feedback chiến đấu.',
+    socials: {}
   },
   {
     id: 't3',
-    name: 'Trần Hoàng Nam',
-    role: 'Trưởng nhóm Lập trình Đồ họa',
-    avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=150',
-    bio: 'Phù thủy mã nguồn với khả năng tối ưu hóa đồ họa cực đại. Chuyên gia hàng đầu Việt Nam về kiến trúc Unreal Engine và lập trình đổ bóng (shader programming).',
-    socials: { github: 'namtran-graphics' }
+    name: 'Mobile',
+    role: 'Performance / Build',
+    avatar: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=150',
+    bio: 'Tối ưu FPS, memory, loading, addressables, Android/iOS build settings và các SDK phổ biến.',
+    socials: {}
   },
   {
     id: 't4',
-    name: 'Lê Minh Hải',
-    role: 'Giám đốc Sản xuất',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150',
-    bio: 'Chịu trách nhiệm vận hành, điều phối tiến độ và đảm bảo mỗi tựa game khi xuất xưởng đều đạt độ hoàn thiện cao nhất. Đam mê vô tận với các trò chơi chiến thuật cổ điển.',
-    socials: { twitter: '@haile_prod' }
+    name: 'Tools',
+    role: 'Editor / Pipeline',
+    avatar: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=150',
+    bio: 'Xây editor tools, config workflow, debug panel và module dùng lại để tăng tốc phát triển dự án.',
+    socials: {}
   }
 ];

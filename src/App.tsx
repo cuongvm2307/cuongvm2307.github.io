@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import GameCard from './components/GameCard';
@@ -7,31 +7,63 @@ import BlogSection from './components/BlogSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import GameDetailsModal from './components/GameDetailsModal';
-import { GAMES_DATA } from './data';
 import { Game } from './types';
-import { Gamepad2, Filter, Sparkles, Award } from 'lucide-react';
 import { playSound } from './utils/audio';
+import { getGames, labels, Language } from './i18n';
+
+type ProjectFilter = 'all' | 'rpg' | 'action' | 'cozy';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('hero');
   const [selectedGame, setSelectedGame] = useState<Game | null>(null);
-  const [projectFilter, setProjectFilter] = useState<'Tất cả' | 'Nhập Vai' | 'Hành Động' | 'Cozy'>('Tất cả');
+  const [projectFilter, setProjectFilter] = useState<ProjectFilter>('all');
+  const [language, setLanguage] = useState<Language>(() => {
+    const saved = localStorage.getItem('cuongvm_language');
+    if (saved === 'vi' || saved === 'en') return saved;
+    return navigator.language.toLowerCase().startsWith('vi') ? 'vi' : 'en';
+  });
 
-  // Multi-section scroll spy
+  const text = labels[language];
+  const games = getGames(language);
+  const projectFilters: ProjectFilter[] = ['all', 'rpg', 'action', 'cozy'];
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+    localStorage.setItem('cuongvm_language', language);
+  }, [language]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('cuongvm_language');
+    if (saved === 'vi' || saved === 'en') return;
+
+    const controller = new AbortController();
+    fetch('https://ipapi.co/json/', { signal: controller.signal })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((geo) => {
+        if (!geo?.country_code) return;
+        setLanguage(geo.country_code === 'VN' ? 'vi' : 'en');
+      })
+      .catch(() => {
+        setLanguage(navigator.language.toLowerCase().startsWith('vi') ? 'vi' : 'en');
+      });
+
+    return () => controller.abort();
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['hero', 'projects', 'about', 'blog', 'contact'];
-      const scrollPosition = window.scrollY + 180; // offset for nav
+      const scrollPosition = window.scrollY + 180;
 
       for (const section of sections) {
         const el = document.getElementById(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(section);
-            break;
-          }
+        if (!el) continue;
+
+        const top = el.offsetTop;
+        const height = el.offsetHeight;
+        if (scrollPosition >= top && scrollPosition < top + height) {
+          setActiveSection(section);
+          break;
         }
       }
     };
@@ -42,61 +74,54 @@ export default function App() {
 
   const handleNavigate = (sectionId: string) => {
     setActiveSection(sectionId);
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Filter games based on category
-  const filteredGames = GAMES_DATA.filter(game => {
-    if (projectFilter === 'Tất cả') return true;
-    if (projectFilter === 'Nhập Vai') return game.genre.includes('RPG') || game.genre.includes('Vai');
-    if (projectFilter === 'Hành Động') return game.genre.includes('Action') || game.genre.includes('Shooter') || game.genre.includes('Hành Động');
-    if (projectFilter === 'Cozy') return game.genre.includes('Cozy') || game.genre.includes('Simulation') || game.genre.includes('Nhịp độ chậm');
+  const filteredGames = games.filter((game) => {
+    if (projectFilter === 'all') return true;
+    if (projectFilter === 'rpg') return game.genre.includes('RPG') || game.genre.includes('Gameplay') || game.genre.includes('Action');
+    if (projectFilter === 'action') return game.genre.includes('Multiplayer') || game.genre.includes('Realtime') || game.genre.includes('Co-op');
+    if (projectFilter === 'cozy') return game.genre.includes('Tools') || game.genre.includes('Casual') || game.genre.includes('LiveOps');
     return true;
   });
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white font-sans scroll-smooth selection:bg-indigo-500/30 selection:text-white" id="hanhi-app-root">
-      {/* Dynamic glow blobs */}
+    <div className="min-h-screen bg-slate-950 text-white font-sans scroll-smooth selection:bg-indigo-500/30 selection:text-white" id="cuongvm-app-root">
       <div className="fixed top-0 left-0 right-0 h-[400px] bg-gradient-to-b from-indigo-900/10 to-transparent pointer-events-none z-0"></div>
 
-      {/* Header element */}
-      <Header activeSection={activeSection} onNavigate={handleNavigate} />
+      <Header
+        activeSection={activeSection}
+        onNavigate={handleNavigate}
+        language={language}
+        onLanguageChange={setLanguage}
+      />
 
-      {/* Main content elements */}
       <main className="relative z-10">
-        
-        {/* HERO SECTION */}
-        <Hero 
+        <Hero
           onExploreProjects={() => handleNavigate('projects')}
           onExploreAbout={() => handleNavigate('about')}
+          language={language}
         />
 
-        {/* PRODUCTS / PORTFOLIO SECTION */}
         <section id="projects" className="py-24 bg-slate-900 border-t border-slate-950 relative">
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950 to-transparent pointer-events-none"></div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            {/* Section Headings */}
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
               <div>
                 <span className="text-xs font-mono font-black text-indigo-400 uppercase tracking-widest block mb-2">
-                  DANH MỤC SẢN PHẨM
+                  {text.projects.eyebrow}
                 </span>
                 <h2 className="text-3xl sm:text-5xl font-sans font-black text-white tracking-tight">
-                  DỰ ÁN TIÊU BIỂU
+                  {text.projects.title}
                 </h2>
                 <p className="text-slate-400 text-xs sm:text-sm mt-3.5 max-w-xl font-normal leading-relaxed">
-                  Từ những thế giới mở nhập vai rộng lớn cho đến những vũ trụ hành động tương lai hay thung lũng nông trại yên ả chữa lành, khám phá thế giới tuyệt vời chúng tôi xây dựng.
+                  {text.projects.intro}
                 </p>
               </div>
 
-              {/* Category Filter Pills */}
               <div className="flex flex-wrap gap-1.5" id="project-filters">
-                {(['Tất cả', 'Nhập Vai', 'Hành Động', 'Cozy'] as const).map((filter) => (
+                {projectFilters.map((filter) => (
                   <button
                     key={filter}
                     onClick={() => {
@@ -109,51 +134,42 @@ export default function App() {
                         : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
                     }`}
                   >
-                    {filter}
+                    {text.projects.filters[filter]}
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Game Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="games-grid-container">
               {filteredGames.map((game) => (
-                <GameCard 
-                  key={game.id} 
-                  game={game} 
+                <GameCard
+                  key={game.id}
+                  game={game}
+                  language={language}
                   onSelect={(g) => {
                     setSelectedGame(g);
                     playSound.twinkle();
-                  }} 
+                  }}
                 />
               ))}
             </div>
-
           </div>
         </section>
 
-        {/* ABOUT / INTRO SECTION */}
-        <AboutSection />
-
-        {/* NEWS / BLOG SECTION */}
-        <BlogSection />
-
-        {/* CONTACT SECTION */}
-        <ContactSection />
-
+        <AboutSection language={language} />
+        <BlogSection language={language} />
+        <ContactSection language={language} games={games} />
       </main>
 
-      {/* FOOTER */}
-      <Footer onNavigate={handleNavigate} />
+      <Footer onNavigate={handleNavigate} language={language} />
 
-      {/* DETAIL MODAL OVERLAY */}
       {selectedGame && (
-        <GameDetailsModal 
-          game={selectedGame} 
+        <GameDetailsModal
+          game={selectedGame}
           onClose={() => {
             setSelectedGame(null);
             playSound.twinkle();
-          }} 
+          }}
         />
       )}
     </div>

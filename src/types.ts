@@ -24,7 +24,7 @@ export interface Blog {
   title: string;
   summary: string;
   content: string;
-  category: 'Cập nhật Game' | 'Hậu trường Dev' | 'Tin công nghệ' | 'Sự kiện';
+  category: string;
   author: {
     name: string;
     avatar: string;

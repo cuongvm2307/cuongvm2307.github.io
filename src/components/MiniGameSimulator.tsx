@@ -20,7 +20,7 @@ export default function MiniGameSimulator({ demoType, gameTitle }: MiniGameSimul
 
   // Load high score
   useEffect(() => {
-    const saved = localStorage.getItem(`hanhi_highscore_${demoType}`);
+    const saved = localStorage.getItem(`cuongvm_highscore_${demoType}`);
     if (saved) {
       setHighScore(parseInt(saved, 10));
     }
@@ -29,12 +29,12 @@ export default function MiniGameSimulator({ demoType, gameTitle }: MiniGameSimul
   const saveScore = (newScore: number) => {
     if (newScore > highScore) {
       setHighScore(newScore);
-      localStorage.setItem(`hanhi_highscore_${demoType}`, newScore.toString());
+      localStorage.setItem(`cuongvm_highscore_${demoType}`, newScore.toString());
     }
   };
 
   // ==========================================
-  // GAME 1: COMBAT (Thần Kiếm)
+  // GAME 1: COMBAT (Unity Combat Demo)
   // ==========================================
   const [enemyPos, setEnemyPos] = useState(100); // 0 to 100% of runway
   const [lives, setLives] = useState(3);
@@ -227,7 +227,7 @@ export default function MiniGameSimulator({ demoType, gameTitle }: MiniGameSimul
         setIsPlaying(false);
         setDecryptedData(
           `[MÃ NGUỒN CỦA NEXUS ĐÃ ĐƯỢC GIẢI MÃ THÀNH CÔNG]
-Dữ liệu rò rỉ từ Tập đoàn V-Corp: "Dự án siêu AI Neural Nexus đang thâm nhập vào thiết bị thực tế ảo của người dân Neo-Saigon. Đội Ghost Hacker của HanHi Games đã định vị chính xác lõi dữ liệu trung tâm..."`
+Dữ liệu rò rỉ từ Tập đoàn V-Corp: "Dự án siêu AI Neural Nexus đang thâm nhập vào thiết bị thực tế ảo của người dân Neo-Saigon. Đội Ghost Hacker của Cường VM đã định vị chính xác lõi dữ liệu trung tâm..."`
         );
         if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
       }
