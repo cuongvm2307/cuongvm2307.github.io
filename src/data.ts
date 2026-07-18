@@ -183,7 +183,7 @@ export const TEAM_DATA: TeamMember[] = [
     role: 'Senior Unity Developer',
     avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=150',
     bio: 'Unity developer nhiều kinh nghiệm, mạnh về gameplay, mobile optimization, UI flow, tools và làm việc cùng team production.',
-    socials: { github: 'cuongvm2307', linkedin: 'cuong-vm' }
+    socials: { github: 'cuongvm2307', linkedin: 'https://www.linkedin.com/in/cuong-vu-532621119/' }
   },
   {
     id: 't2',

@@ -12,7 +12,7 @@ export default function Footer({ onNavigate, language }: FooterProps) {
   const isVi = language === 'vi';
   const socialLinks = [
     { label: 'GitHub', url: 'https://github.com/cuongvm2307', icon: Github, color: 'hover:text-white' },
-    { label: 'LinkedIn', url: '#', icon: Linkedin, color: 'hover:text-blue-400' },
+    { label: 'LinkedIn', url: 'https://www.linkedin.com/in/cuong-vu-532621119/', icon: Linkedin, color: 'hover:text-blue-400' },
     { label: 'Email', url: 'mailto:cuongvm2307@gmail.com', icon: Mail, color: 'hover:text-indigo-400' }
   ];
   const links = [
