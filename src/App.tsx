@@ -15,6 +15,7 @@ import { getGames, labels, Language } from './i18n';
 type ProjectFilter = 'all' | 'rpg' | 'action' | 'cozy';
 
 export default function App() {
+  const isPolicyPage = window.location.pathname.replace(/\/$/, '') === '/policy';
   const [activeSection, setActiveSection] = useState('hero');
   const [selectedGame, setSelectedGame] = useState<Game | null>(null);
   const [projectFilter, setProjectFilter] = useState<ProjectFilter>('all');
@@ -32,6 +33,16 @@ export default function App() {
     document.documentElement.lang = language;
     localStorage.setItem('cuongvm_language', language);
   }, [language]);
+
+  useEffect(() => {
+    if (isPolicyPage || !window.location.hash) return;
+
+    const sectionId = window.location.hash.slice(1);
+    window.setTimeout(() => {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(sectionId);
+    }, 100);
+  }, [isPolicyPage]);
 
   useEffect(() => {
     const saved = localStorage.getItem('cuongvm_language');
@@ -53,7 +64,7 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'projects', 'about', 'blog', 'contact', 'policy'];
+      const sections = ['hero', 'projects', 'about', 'blog', 'contact'];
       const scrollPosition = window.scrollY + 180;
 
       for (const section of sections) {
@@ -74,6 +85,16 @@ export default function App() {
   }, []);
 
   const handleNavigate = (sectionId: string) => {
+    if (sectionId === 'policy') {
+      window.location.href = '/policy';
+      return;
+    }
+
+    if (isPolicyPage) {
+      window.location.href = sectionId === 'hero' ? '/' : `/#${sectionId}`;
+      return;
+    }
+
     setActiveSection(sectionId);
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -85,6 +106,25 @@ export default function App() {
     if (projectFilter === 'cozy') return game.genre.includes('Tools') || game.genre.includes('Casual') || game.genre.includes('LiveOps');
     return true;
   });
+
+  if (isPolicyPage) {
+    return (
+      <div className="min-h-screen bg-slate-950 text-white font-sans selection:bg-indigo-500/30 selection:text-white" id="cuongvm-policy-root">
+        <Header
+          activeSection="policy"
+          onNavigate={handleNavigate}
+          language={language}
+          onLanguageChange={setLanguage}
+        />
+
+        <main className="relative z-10 pt-16">
+          <PolicyTermsSection language={language} />
+        </main>
+
+        <Footer onNavigate={handleNavigate} language={language} />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-950 text-white font-sans scroll-smooth selection:bg-indigo-500/30 selection:text-white" id="cuongvm-app-root">
@@ -160,7 +200,6 @@ export default function App() {
         <AboutSection language={language} />
         <BlogSection language={language} />
         <ContactSection language={language} games={games} />
-        <PolicyTermsSection language={language} />
       </main>
 
       <Footer onNavigate={handleNavigate} language={language} />
